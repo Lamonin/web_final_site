@@ -1,0 +1,79 @@
+extends base
+
+block variables
+	- var title = "Авиатехника";
+	- var activeMenuItem = 1
+
+	-
+		var graphCheckBoxes = {
+			"chkBox1": "Максимальная скорость полета",
+			"chkBox2": "Максимальная дальность полета",
+			"chkBox3": "Максимальная высота полета",
+			"chkBox4": "Максимальный взлетный вес",
+			"chkBox5": "Максимальное кол-во пассажиров"
+		};
+
+	-
+		var filteredFormInputs = {
+			"filterInputName": "Название",
+			"filterInputSpeed": "Скорость",
+			"filterInputDistance": "Дальность",
+			"filterInputHeight": "Макс. высота полета",
+			"filterInputWeight": "Макс. взлетный вес",
+			"filterInputPassengers": "Пассажиры",
+		};
+
+mixin radioWithRightLabel(id, name, label, value)
+	input(id=id name=name type="radio" value=value)&attributes(attributes)
+	label(for=id)= label
+
+mixin checkBoxWithRightLabel(id, label, value)
+	input(id=id type="checkbox" value=value)
+	label(for=id)= label
+
+mixin createFilterInput(id, label)
+	label(for=id)= label
+	input(id=id type="text")
+
+mixin createSortDropdown(dropDownId, checkBoxId, dropDownLabel, checkBoxLabel)
+	label(for=dropDownId)= dropDownLabel
+	select(id=dropDownId)
+		option(value=0)= "--------"
+		- var n = 1
+		each value in filteredFormInputs
+			option(value=n++)= value 
+	label(for=checkBoxId)= checkBoxLabel
+	input(id=checkBoxId type="checkbox")
+
+block content
+	.flights-section.no-wide-container
+		h2 График
+		form.graph-container.form-input-container
+			.graph-container__oxcell
+				h3 Значение по оси OX
+				.graph-container__control
+					+radioWithRightLabel("ox-value-1", "ox-value", "Название", 0)(checked)
+					+radioWithRightLabel("ox-value-2", "ox-value", "Тип", 1)
+			.graph-container__oycell
+				h3 Результат
+				.graph-container__control
+					- var n = 0
+					each value, key in graphCheckBoxes
+						+checkBoxWithRightLabel(key, value, n++)
+			.graph-container_graph
+
+		h2 Фильтр
+		form.filter-container.form-input-container
+			each value, key in filteredFormInputs
+				+createFilterInput(key, value+":")
+
+		h2 Сортировка
+		form.sort-container.form-input-container
+			+createSortDropdown("sort-1", "is-descending-1", "Первый уровень:", "по убыванию:")
+			+createSortDropdown("sort-2", "is-descending-2", "Второй уровень:", "по убыванию:")
+		
+
+		.flights-table
+			br
+			include includes/flights_table
+

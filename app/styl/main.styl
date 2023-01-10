@@ -1,0 +1,443 @@
+// Используется БЭМ
+
+// RESET CSS
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+	margin: 0
+	padding: 0
+	border: 0
+	vertical-align: baseline
+
+// COLORS
+$standart-blue = #30517F
+$highlight-blue = #3562A7
+
+// MEASUREMENTS
+$max-header-width = 1280px
+$max-block-width = $max-header-width - 64px
+
+//GRIDS
+$sort-container-columns = max-content 1fr max-content max-content
+
+zeroPaddingMargin()
+	padding: 0
+	margin: 0
+
+coverImage()
+	object-fit: cover
+	width: 100%
+	height: 100%
+
+.bold-text
+	font-weight: bold
+
+body
+	font-family: 'Roboto Condensed', sans-serif;
+
+.site-container
+	display: flex
+	flex-direction: column;
+
+	min-height: 100vh;
+
+	& .content-container
+		flex-grow: 1
+
+	& .no-wide-container
+		max-width: $max-block-width
+		margin: 0 auto
+		padding: 32px 16px
+
+footer
+	display: flex
+	justify-content: center
+	align-items: center
+	
+	height: 64px
+
+	background: $standart-blue
+	color: white
+	& p
+		zeroPaddingMargin()
+
+header
+	padding: 16px
+
+	background: $standart-blue
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3)
+
+	& .header-container
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		width: 100%;
+		max-width: $max-header-width
+
+		margin: 0 auto
+
+		& .header__site-logo
+			color: white
+			text-decoration: none
+			font-weight: bold
+			font-size: 32px
+
+		& nav
+			display: grid
+			grid-template-columns: repeat(3, max-content)
+			grid-column-gap: 16px
+
+			& .menu-item
+				color: white
+				text-decoration: none
+				text-align: center
+				font-size: 18px
+
+				padding: 8px 12px
+				border-radius: 4px
+				
+				&:hover
+					background: $highlight-blue
+					transition: background 100ms ease-in-out
+
+			& .menu-item--active
+				background: $highlight-blue
+
+.article__container
+	& .article__block
+		display: grid
+		grid-template-columns: 1fr minmax(0, $max-block-width) 1fr
+		grid-template-rows: 1fr
+
+		align-items: center
+
+		& .article__block-content
+			grid-column: 2/3
+			grid-row: 1
+
+			padding: 32px 16px
+
+			& h1
+				font-weight: 400
+				font-size: 36px
+
+			& p
+				font-size: 18px
+				text-align: justify
+				text-indent: 1.5em
+				
+			& p+p
+				margin-top: 16px
+
+			& img
+				display: block
+
+				width: 80%
+				margin: 16px auto
+
+				border: 1px solid $standart-blue
+
+			& ul, ol
+				font-size: 18px
+				list-style-position: inside
+				text-indent: 1.5em
+				margin-bottom: 16px
+
+	& .article__block+.article__block
+		margin: 16px 0
+
+	& .article__block-background
+		min-height: 180px
+
+		background-size: cover
+		background-color: rgba(0, 0, 0, 0.4)
+		background-blend-mode: darken
+	
+	& .article__title
+		text-align: center
+		color: white
+
+	& .article__title-with-description
+		& h1
+			text-align: center
+			margin-bottom: 8px
+
+.flights-section
+	& h1
+		text-align: center
+
+	& .graph-container
+		display: grid
+		grid-template-areas: "oxcell graphcell" "oycell graphcell"
+		grid-template-columns: max-content 1fr
+		grid-template-rows: max-content 1fr
+		grid-gap: 16px
+
+		& .graph-container__oxcell
+			grid-area: oxcell
+
+		& .graph-container__oycell
+			grid-area: oycell
+			
+		& .graph-container_graph
+			grid-area: graphcell
+
+			min-height: 300px
+			background: grey
+			
+		& .graph-container__control
+			display: grid
+			grid-template-columns: repeat(2, max-content)
+			grid-column-gap: 4px
+			grid-row-gap: 8px
+
+			align-items: center
+
+			& label
+				zeroPaddingMargin()
+
+	& .form-input-container
+		padding: 0 8px
+		margin-bottom: 32px
+
+	& .filter-container
+		display: grid
+		grid-template-columns: max-content 1fr max-content 1fr
+		grid-column-gap: 8px
+		grid-row-gap: 8px
+
+		align-items: center
+
+		& label
+			zeroPaddingMargin()
+
+		& label:nth-of-type(even)
+			margin-left: 32px
+		
+		& input
+			min-width: 64px
+
+	& .sort-container
+		display: grid
+		grid-template-columns: repeat(2, $sort-container-columns)
+		grid-column-gap: 8px
+		grid-row-gap: 8px
+
+		align-items: center
+
+		& label
+			zeroPaddingMargin()
+
+		& select
+			min-width: 64px
+
+		& input[type="checkbox"]+label
+			margin-left: 24px
+
+
+.flights-table
+	overflow-x: auto
+
+	& .flights-table__container
+		margin: 0 auto
+		border: 2px solid black
+
+		& tr:nth-of-type(even)
+			background: #d7e8ff
+
+		& th, td
+			border: 1px solid black
+			padding: 5px 10px
+
+		& th, .flights-table__number
+			text-align: center
+			white-space: nowrap
+
+		& .flights-table__name-cell, .flights-table__name-column
+			width: 100%
+		
+		& .flights-table__name-cell
+			text-decoration: none
+
+.media__container
+	display: grid
+	grid-template-columns: repeat(3, 1fr)
+	grid-gap: 24px
+
+	& .media_item
+		border: solid 8px white
+		box-shadow: 4px 4px 10px rgba(0,0,0,0.5)
+
+		height: 256px
+		overflow: hidden
+
+		transition: scale 100ms ease-in-out
+
+		& img
+			coverImage()
+
+		&:hover
+			scale: 1.05
+			transition: scale 200ms ease-in-out
+
+.flights_article
+	display: grid
+	grid-template-areas: "article-title article-title" "article-content article-info"
+	grid-template-columns: 1fr 240px
+	grid-template-rows: 120px 1fr
+	grid-column-gap: 32px
+
+	& .flights_article__title
+		grid-area: article-title
+
+		align-self: center
+		justify-self: center
+		
+		font-size: 40px
+		font-weight: 400
+
+		margin-top: -32px
+	
+	& .flights_article__info-block
+		grid-area: article-info
+
+		& .flights_article__info-title
+			font-size: 24px
+			font-weight: 400
+
+		& hr
+			border: 2px $standart-blue solid
+			width: 32px
+			margin-left: 0
+			margin-bottom: 12px
+
+		& .flights_article__also-block+.flights_article__also-block
+			margin-top: 16px
+
+		& .flights_article__also-block
+			display: grid
+
+			grid-template-columns: 1fr
+			grid-template-rows: 150px 48px
+
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+
+			text-decoration: none
+			color: inherit
+
+			transition: all 200ms ease-in-out
+
+			& .flights_article__also-img
+				& img
+					coverImage()
+
+			& .flights_article__also-title
+				font-weight: 400
+				font-size: 18px
+
+				zeroPaddingMargin()
+				align-self: center
+				justify-self: center
+
+			&:hover
+				background: $standart-blue
+				color: white
+
+			&:active
+				background: $highlight-blue
+				transition: none
+
+	& .flights_article__content
+		grid-area: article-content
+
+		padding: 16px
+
+		background: white
+		border-radius: 4px
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+
+		font-size: 18px
+		font-weight: 400
+
+		align-self: start
+
+		& p+p
+			margin-top: 16px
+		
+		& .flights_article__block-title
+			font-weight: bold
+			margin-bottom: -16px
+
+		& .flights_article__content-cover
+			width: calc(100% + 32px)
+			margin: -16px
+			margin-bottom: -24px
+
+		& .flights_article__content-cover + p
+			margin-top: 40px
+
+@media screen and (max-width: 780px)
+	.flights-section
+		& .graph-container
+			grid-template-areas: "oxcell" "oycell" "graphcell"
+			grid-template-columns: 1fr
+			grid-template-rows: max-content max-content 1fr
+		
+		& .sort-container
+			grid-template-columns: $sort-container-columns
+
+			& input[type="checkbox"]+label
+				margin-left: 0
+	.media__container
+		grid-template-columns: repeat(2, 1fr)
+
+	.flights_article
+		grid-template-areas: "article-title" "article-content" "article-info"
+		grid-template-columns: 1fr
+		grid-template-rows: 120px 1fr auto
+
+		& .flights_article__info-block
+			margin-top: 16px
+
+			& .flights_article__also-block
+				grid-template-rows: 250px 48px
+
+@media screen and (max-width: 600px)
+	header & .header-container
+		flex-direction: column
+		align-items: stretch
+
+		& .header__site-logo
+			text-align: center
+			margin-bottom: 16px
+
+		& nav
+			grid-template-columns: auto
+			grid-row-gap: 8px
+
+	.article__container
+		& .article__block
+			& .article__block-content
+				& img
+					width: 100%
+
+	.flights-section
+		& .filter-container
+			grid-template-columns: max-content 1fr
+			
+			& label:nth-of-type(even)
+				margin-left: 0
+
+	.media__container
+		grid-template-columns: 1fr

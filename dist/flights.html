@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Авиатехника</title>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body class="site-container">
+    <header>
+      <div class="header-container"><a class="header__site-logo" href="index.html">Самолеты</a>
+        <nav><a class="menu-item" href="index.html">ИСТОРИЯ</a><a class="menu-item--active menu-item" href="flights.html">АВИАТЕХНИКА</a><a class="menu-item" href="media.html">МЕДИА</a>
+        </nav>
+      </div>
+    </header>
+    <div class="content-container">
+      <div class="flights-section no-wide-container">
+        <h2>График</h2>
+        <form class="graph-container form-input-container">
+          <div class="graph-container__oxcell">
+            <h3>Значение по оси OX</h3>
+            <div class="graph-container__control">
+              <input id="ox-value-1" name="ox-value" type="radio" value="0" checked="checked"/>
+              <label for="ox-value-1">Название</label>
+              <input id="ox-value-2" name="ox-value" type="radio" value="1"/>
+              <label for="ox-value-2">Тип</label>
+            </div>
+          </div>
+          <div class="graph-container__oycell">
+            <h3>Результат</h3>
+            <div class="graph-container__control">
+              <input id="chkBox1" type="checkbox" value="0"/>
+              <label for="chkBox1">Максимальная скорость полета</label>
+              <input id="chkBox2" type="checkbox" value="1"/>
+              <label for="chkBox2">Максимальная дальность полета</label>
+              <input id="chkBox3" type="checkbox" value="2"/>
+              <label for="chkBox3">Максимальная высота полета</label>
+              <input id="chkBox4" type="checkbox" value="3"/>
+              <label for="chkBox4">Максимальный взлетный вес</label>
+              <input id="chkBox5" type="checkbox" value="4"/>
+              <label for="chkBox5">Максимальное кол-во пассажиров</label>
+            </div>
+          </div>
+          <div class="graph-container_graph"></div>
+        </form>
+        <h2>Фильтр</h2>
+        <form class="filter-container form-input-container">
+          <label for="filterInputName">Название:</label>
+          <input id="filterInputName" type="text"/>
+          <label for="filterInputSpeed">Скорость:</label>
+          <input id="filterInputSpeed" type="text"/>
+          <label for="filterInputDistance">Дальность:</label>
+          <input id="filterInputDistance" type="text"/>
+          <label for="filterInputHeight">Макс. высота полета:</label>
+          <input id="filterInputHeight" type="text"/>
+          <label for="filterInputWeight">Макс. взлетный вес:</label>
+          <input id="filterInputWeight" type="text"/>
+          <label for="filterInputPassengers">Пассажиры:</label>
+          <input id="filterInputPassengers" type="text"/>
+        </form>
+        <h2>Сортировка</h2>
+        <form class="sort-container form-input-container">
+          <label for="sort-1">Первый уровень:</label>
+          <select id="sort-1">
+            <option value="0">--------</option>
+            <option value="1">Название</option>
+            <option value="2">Скорость</option>
+            <option value="3">Дальность</option>
+            <option value="4">Макс. высота полета</option>
+            <option value="5">Макс. взлетный вес</option>
+            <option value="6">Пассажиры</option>
+          </select>
+          <label for="is-descending-1">по убыванию:</label>
+          <input id="is-descending-1" type="checkbox"/>
+          <label for="sort-2">Второй уровень:</label>
+          <select id="sort-2">
+            <option value="0">--------</option>
+            <option value="1">Название</option>
+            <option value="2">Скорость</option>
+            <option value="3">Дальность</option>
+            <option value="4">Макс. высота полета</option>
+            <option value="5">Макс. взлетный вес</option>
+            <option value="6">Пассажиры</option>
+          </select>
+          <label for="is-descending-2">по убыванию:</label>
+          <input id="is-descending-2" type="checkbox"/>
+        </form>
+        <div class="flights-table"><br/>
+                    <table class="flights-table__container">
+                      <tr>
+                        <th>№</th>
+                        <th class="flights-table__name-column">Название</th>
+                        <th>Cкорость (км/ч)</th>
+                        <th>Дальность (км)</th>
+                        <th>Макс. высота полета (м)</th>
+                        <th>Макс. взлетный вес (кг)</th>
+                        <th>Пассажиры (чел.)</th>
+                      </tr>
+                      <tr>
+                        <td class="flights-table__number">1</td>
+                        <td><a class="flights-table__name-cell" href="dassault_falcon_50.html">Dassault Falcon 50</a></td>
+                        <td>880</td>
+                        <td>6300</td>
+                        <td>13800</td>
+                        <td>14600</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td class="flights-table__number">2</td>
+                        <td><a class="flights-table__name-cell" href="hawker_1000.html">Hawker 1000</a></td>
+                        <td>867</td>
+                        <td>5637</td>
+                        <td>12497</td>
+                        <td>14107</td>
+                        <td>15</td>
+                      </tr>
+                      <tr>
+                        <td class="flights-table__number">3</td>
+                        <td><a class="flights-table__name-cell" href="gulfstream_g200.html">Gulfstream G200</a></td>
+                        <td>796</td>
+                        <td>6301</td>
+                        <td>13720</td>
+                        <td>16080</td>
+                        <td>11</td>
+                      </tr>
+                      <tr>
+                        <td class="flights-table__number">4</td>
+                        <td><a class="flights-table__name-cell" href="cesna_soveregin.html">Cessna Citation Sovereign</a></td>
+                        <td>848</td>
+                        <td>5556</td>
+                        <td>14326</td>
+                        <td>13959</td>
+                        <td>12</td>
+                      </tr>
+                    </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Copyright 2022, FEFU, Рольщиков Максим</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+-var menuItems = {"ИСТОРИЯ": "index.html", "АВИАТЕХНИКА": "flights.html", "МЕДИА": "media.html"}
+
+block variables
+
+mixin createMenuItems
+	- var n = 0
+	each href, label in menuItems
+		a(href=href class={"menu-item--active" : n++ == activeMenuItem}).menu-item= label
+
+html
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+		title #{title}
+		link(rel="stylesheet", href="css/bootstrap-reboot.min.css")
+		link(rel="stylesheet", href="css/main.css")
+		link(rel="preconnect" href="https://fonts.googleapis.com")
+		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+		link(href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet")
+
+	body.site-container
+		header
+			.header-container
+				a(href="index.html").header__site-logo Самолеты
+				nav
+					+createMenuItems
+		.content-container
+			block content
+		footer
+			p Copyright 2022, FEFU, Рольщиков Максим

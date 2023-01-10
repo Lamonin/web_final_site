@@ -1,0 +1,27 @@
+extends base
+block variables
+	- var title = "Медиа";
+	- var activeMenuItem = 2
+	-
+		var mediaImages = [
+			"img/airplane_1.jpg",
+			"img/airplane_2.jpg",
+			"img/airplane_3.jpg",
+			"img/airplane_4.jpg",
+			"img/hawker_1000.jpg",
+			"img/gulfstream_g200.jpg",
+			"img/dassault_falcon_50.jpg",
+			"img/cesna_soveregin.jpg",
+		];
+block content
+	.media__container.no-wide-container
+		- var n = 0
+		- var ind = 0
+		while n++ < 24
+			.media_item
+				img(src=mediaImages[ind], alt="")
+				
+				if ind++ === mediaImages.length - 1
+					-ind = 0
+
+
