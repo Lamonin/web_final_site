@@ -27,9 +27,7 @@ $highlight-blue = #3562A7
 $max-header-width = 1280px
 $max-block-width = $max-header-width - 64px
 
-//GRIDS
-$sort-container-columns = max-content 1fr max-content max-content
-
+//MIXINS
 zeroPaddingMargin()
 	padding: 0
 	margin: 0
@@ -163,6 +161,8 @@ header
 		background-size: cover
 		background-color: rgba(0, 0, 0, 0.4)
 		background-blend-mode: darken
+
+		box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3)
 	
 	& .article__title
 		text-align: center
@@ -173,30 +173,36 @@ header
 			text-align: center
 			margin-bottom: 8px
 
-.flights-section
+$sort-container-columns = max-content 1fr max-content max-content
+
+.flights__form
 	& h1
 		text-align: center
+		
+	& .flights__form-block
+		padding: 0 8px
+		margin-bottom: 32px
 
-	& .graph-container
+	& .graph__container
 		display: grid
 		grid-template-areas: "oxcell graphcell" "oycell graphcell"
 		grid-template-columns: max-content 1fr
 		grid-template-rows: max-content 1fr
 		grid-gap: 16px
 
-		& .graph-container__oxcell
+		& .graph__oxcell
 			grid-area: oxcell
 
-		& .graph-container__oycell
+		& .graph__oycell
 			grid-area: oycell
 			
-		& .graph-container_graph
+		& .graph__viewport
 			grid-area: graphcell
 
 			min-height: 300px
 			background: grey
 			
-		& .graph-container__control
+		& .graph__controls
 			display: grid
 			grid-template-columns: repeat(2, max-content)
 			grid-column-gap: 4px
@@ -207,9 +213,7 @@ header
 			& label
 				zeroPaddingMargin()
 
-	& .form-input-container
-		padding: 0 8px
-		margin-bottom: 32px
+	
 
 	& .filter-container
 		display: grid
@@ -254,7 +258,7 @@ header
 		border: 2px solid black
 
 		& tr:nth-of-type(even)
-			background: #d7e8ff
+			background: #ebf4ff
 
 		& th, td
 			border: 1px solid black
@@ -275,7 +279,7 @@ header
 	grid-template-columns: repeat(3, 1fr)
 	grid-gap: 24px
 
-	& .media_item
+	& .media__item
 		border: solid 8px white
 		box-shadow: 4px 4px 10px rgba(0,0,0,0.5)
 
@@ -291,14 +295,14 @@ header
 			scale: 1.05
 			transition: scale 200ms ease-in-out
 
-.flights_article
+.flights-article
 	display: grid
 	grid-template-areas: "article-title article-title" "article-content article-info"
 	grid-template-columns: 1fr 240px
 	grid-template-rows: 120px 1fr
 	grid-column-gap: 32px
 
-	& .flights_article__title
+	& .flights-article__title
 		grid-area: article-title
 
 		align-self: center
@@ -309,10 +313,10 @@ header
 
 		margin-top: -32px
 	
-	& .flights_article__info-block
+	& .flights-article__info-block
 		grid-area: article-info
 
-		& .flights_article__info-title
+		& .flights-article__info-title
 			font-size: 24px
 			font-weight: 400
 
@@ -322,10 +326,10 @@ header
 			margin-left: 0
 			margin-bottom: 12px
 
-		& .flights_article__also-block+.flights_article__also-block
+		& .flights-article__also-block+.flights-article__also-block
 			margin-top: 16px
 
-		& .flights_article__also-block
+		& .flights-article__also-block
 			display: grid
 
 			grid-template-columns: 1fr
@@ -338,11 +342,11 @@ header
 
 			transition: all 200ms ease-in-out
 
-			& .flights_article__also-img
+			& .flights-article__also-img
 				& img
 					coverImage()
 
-			& .flights_article__also-title
+			& .flights-article__also-title
 				font-weight: 400
 				font-size: 18px
 
@@ -358,7 +362,7 @@ header
 				background: $highlight-blue
 				transition: none
 
-	& .flights_article__content
+	& .flights-article__content
 		grid-area: article-content
 
 		padding: 16px
@@ -375,21 +379,21 @@ header
 		& p+p
 			margin-top: 16px
 		
-		& .flights_article__block-title
+		& .flights-article__block-title
 			font-weight: bold
 			margin-bottom: -16px
 
-		& .flights_article__content-cover
+		& .flights-article__content-cover
 			width: calc(100% + 32px)
 			margin: -16px
 			margin-bottom: -24px
 
-		& .flights_article__content-cover + p
+		& .flights-article__content-cover + p
 			margin-top: 40px
 
 @media screen and (max-width: 780px)
-	.flights-section
-		& .graph-container
+	.flights__form
+		& .graph__container
 			grid-template-areas: "oxcell" "oycell" "graphcell"
 			grid-template-columns: 1fr
 			grid-template-rows: max-content max-content 1fr
@@ -402,15 +406,15 @@ header
 	.media__container
 		grid-template-columns: repeat(2, 1fr)
 
-	.flights_article
+	.flights-article
 		grid-template-areas: "article-title" "article-content" "article-info"
 		grid-template-columns: 1fr
 		grid-template-rows: 120px 1fr auto
 
-		& .flights_article__info-block
+		& .flights-article__info-block
 			margin-top: 16px
 
-			& .flights_article__also-block
+			& .flights-article__also-block
 				grid-template-rows: 250px 48px
 
 @media screen and (max-width: 600px)
@@ -432,7 +436,7 @@ header
 				& img
 					width: 100%
 
-	.flights-section
+	.flights__form
 		& .filter-container
 			grid-template-columns: max-content 1fr
 			

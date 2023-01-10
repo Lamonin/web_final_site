@@ -3,22 +3,22 @@ extends base
 block variables
 
 mixin lookAlsoBlock(imgUrl, alsoTitle, alsoHref="#")
-	a(href=alsoHref).flights_article__also-block
-		.flights_article__also-img
+	a(href=alsoHref).flights-article__also-block
+		.flights-article__also-img
 			img(src=imgUrl, alt="")
-		h3.flights_article__also-title= alsoTitle
+		h3.flights-article__also-title= alsoTitle
 	
 block content
-	.flights_article.no-wide-container
-		h1.flights_article__title= articleTitle
-		.flights_article__info-block
-			h2.flights_article__info-title= "Смотрите также:"
+	.flights-article.no-wide-container
+		h1.flights-article__title= articleTitle
+		.flights-article__info-block
+			h2.flights-article__info-title= "Смотрите также:"
 			hr
 			+lookAlsoBlock("img/dassault_falcon_50.jpg", "Dassault Falcon 50", "dassault_falcon_50.html")
 			+lookAlsoBlock("img/hawker_1000.jpg", "Hawker 1000", "hawker_1000.html")
 			+lookAlsoBlock("img/gulfstream_g200.jpg", "Gulfstream G200", "gulfstream_g200.html")
 			+lookAlsoBlock("img/cesna_soveregin.jpg", "Cessna Citation Sovereign", "cesna_soveregin.html")
-		.flights_article__content
+		.flights-article__content
 			block articleContent
 	
 

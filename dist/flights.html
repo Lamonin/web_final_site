@@ -18,21 +18,21 @@
       </div>
     </header>
     <div class="content-container">
-      <div class="flights-section no-wide-container">
+      <div class="flights__form no-wide-container">
         <h2>График</h2>
-        <form class="graph-container form-input-container">
-          <div class="graph-container__oxcell">
+        <form class="graph__container flights__form-block">
+          <div class="graph__oxcell">
             <h3>Значение по оси OX</h3>
-            <div class="graph-container__control">
-              <input id="ox-value-1" name="ox-value" type="radio" value="0" checked="checked"/>
-              <label for="ox-value-1">Название</label>
-              <input id="ox-value-2" name="ox-value" type="radio" value="1"/>
-              <label for="ox-value-2">Тип</label>
+            <div class="graph__controls">
+              <input id="oxValue1" name="oxValue" type="radio" value="0" checked="checked"/>
+              <label for="oxValue1">Название</label>
+              <input id="oxValue2" name="oxValue" type="radio" value="1"/>
+              <label for="oxValue2">Тип</label>
             </div>
           </div>
-          <div class="graph-container__oycell">
+          <div class="graph__oycell">
             <h3>Результат</h3>
-            <div class="graph-container__control">
+            <div class="graph__controls">
               <input id="chkBox1" type="checkbox" value="0"/>
               <label for="chkBox1">Максимальная скорость полета</label>
               <input id="chkBox2" type="checkbox" value="1"/>
@@ -45,10 +45,10 @@
               <label for="chkBox5">Максимальное кол-во пассажиров</label>
             </div>
           </div>
-          <div class="graph-container_graph"></div>
+          <div class="graph__viewport"></div>
         </form>
         <h2>Фильтр</h2>
-        <form class="filter-container form-input-container">
+        <form class="filter-container flights__form-block">
           <label for="filterInputName">Название:</label>
           <input id="filterInputName" type="text"/>
           <label for="filterInputSpeed">Скорость:</label>
@@ -63,9 +63,9 @@
           <input id="filterInputPassengers" type="text"/>
         </form>
         <h2>Сортировка</h2>
-        <form class="sort-container form-input-container">
-          <label for="sort-1">Первый уровень:</label>
-          <select id="sort-1">
+        <form class="sort-container flights__form-block">
+          <label for="sort1">Первый уровень:</label>
+          <select id="sort1">
             <option value="0">--------</option>
             <option value="1">Название</option>
             <option value="2">Скорость</option>
@@ -74,10 +74,10 @@
             <option value="5">Макс. взлетный вес</option>
             <option value="6">Пассажиры</option>
           </select>
-          <label for="is-descending-1">по убыванию:</label>
-          <input id="is-descending-1" type="checkbox"/>
-          <label for="sort-2">Второй уровень:</label>
-          <select id="sort-2">
+          <label for="isDescending1">по убыванию:</label>
+          <input id="isDescending1" type="checkbox"/>
+          <label for="sort2">Второй уровень:</label>
+          <select id="sort2">
             <option value="0">--------</option>
             <option value="1">Название</option>
             <option value="2">Скорость</option>
@@ -86,8 +86,8 @@
             <option value="5">Макс. взлетный вес</option>
             <option value="6">Пассажиры</option>
           </select>
-          <label for="is-descending-2">по убыванию:</label>
-          <input id="is-descending-2" type="checkbox"/>
+          <label for="isDescending2">по убыванию:</label>
+          <input id="isDescending2" type="checkbox"/>
         </form>
         <div class="flights-table"><br/>
                     <table class="flights-table__container">

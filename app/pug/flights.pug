@@ -46,31 +46,31 @@ mixin createSortDropdown(dropDownId, checkBoxId, dropDownLabel, checkBoxLabel)
 	input(id=checkBoxId type="checkbox")
 
 block content
-	.flights-section.no-wide-container
+	.flights__form.no-wide-container
 		h2 График
-		form.graph-container.form-input-container
-			.graph-container__oxcell
+		form.graph__container.flights__form-block
+			.graph__oxcell
 				h3 Значение по оси OX
-				.graph-container__control
-					+radioWithRightLabel("ox-value-1", "ox-value", "Название", 0)(checked)
-					+radioWithRightLabel("ox-value-2", "ox-value", "Тип", 1)
-			.graph-container__oycell
+				.graph__controls
+					+radioWithRightLabel("oxValue1", "oxValue", "Название", 0)(checked)
+					+radioWithRightLabel("oxValue2", "oxValue", "Тип", 1)
+			.graph__oycell
 				h3 Результат
-				.graph-container__control
+				.graph__controls
 					- var n = 0
 					each value, key in graphCheckBoxes
 						+checkBoxWithRightLabel(key, value, n++)
-			.graph-container_graph
+			.graph__viewport
 
 		h2 Фильтр
-		form.filter-container.form-input-container
+		form.filter-container.flights__form-block
 			each value, key in filteredFormInputs
 				+createFilterInput(key, value+":")
 
 		h2 Сортировка
-		form.sort-container.form-input-container
-			+createSortDropdown("sort-1", "is-descending-1", "Первый уровень:", "по убыванию:")
-			+createSortDropdown("sort-2", "is-descending-2", "Второй уровень:", "по убыванию:")
+		form.sort-container.flights__form-block
+			+createSortDropdown("sort1", "isDescending1", "Первый уровень:", "по убыванию:")
+			+createSortDropdown("sort2", "isDescending2", "Второй уровень:", "по убыванию:")
 		
 
 		.flights-table
