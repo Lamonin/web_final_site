@@ -402,6 +402,7 @@ header .header-container nav .menu-item--active {
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   font-size: 18px;
   font-weight: 400;
+  text-align: justi;
   align-self: start;
 }
 .flights-article .flights-article__content p+p {
