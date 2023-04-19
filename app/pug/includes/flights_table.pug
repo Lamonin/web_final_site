@@ -59,23 +59,24 @@
 
 mixin createFlightsTable
 	table.flights-table__container
-		tr
-			each header, i in flightsTableHeaders
-				th(class=(i==1 ? "flights-table__name-column" : null))= header
-
-		each flightInfo, i in flightsTableInfo
+		thead
 			tr
-				td.flights-table__number= i + 1
-				
-				each infoItem, key in flightInfo
-					if key === "name"
-						td
-							a(href=flightInfo.href).flights-table__name-cell= infoItem
-					else if key !== "href"
-						td= infoItem
-		
-		else
-			each header in flightsTableHeaders
-				td –
+				each header, i in flightsTableHeaders
+					th(class=(i==1 ? "flights-table__name-column" : null))= header
+		tbody(id="flights-table-body")
+			//- each flightInfo, i in flightsTableInfo
+			//- 	tr
+			//- 		td.flights-table__number= i + 1
+					
+			//- 		each infoItem, key in flightInfo
+			//- 			if key === "name"
+			//- 				td
+			//- 					a(href=flightInfo.href).flights-table__name-cell= infoItem
+			//- 			else if key !== "href"
+			//- 				td= infoItem
+			
+			//- else
+			//- 	each header in flightsTableHeaders
+			//- 		td –
 
 +createFlightsTable

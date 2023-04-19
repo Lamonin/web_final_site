@@ -38,12 +38,15 @@ mixin createFilterInput(id, label)
 mixin createSortDropdown(dropDownId, checkBoxId, dropDownLabel, checkBoxLabel)
 	label(for=dropDownId)= dropDownLabel
 	select(id=dropDownId)
-		option(value=0)= "--------"
-		- var n = 1
+		option(value=-1)= "--------"
+		- var n = 0
 		each value in filteredFormInputs
 			option(value=n++)= value 
 	label(for=checkBoxId)= checkBoxLabel
 	input(id=checkBoxId type="checkbox")
+
+block scripts
+	script(src="js/table.js" defer)
 
 block content
 	.flights__form.no-wide-container
@@ -66,14 +69,13 @@ block content
 		form.filter-container.flights__form-block
 			each value, key in filteredFormInputs
 				+createFilterInput(key, value+":")
+			button(id="filter_button" type="button") Применить
 
 		h2 Сортировка
 		form.sort-container.flights__form-block
 			+createSortDropdown("sort1", "isDescending1", "Первый уровень:", "по убыванию:")
 			+createSortDropdown("sort2", "isDescending2", "Второй уровень:", "по убыванию:")
 		
-
 		.flights-table
-			br
 			include includes/flights_table
 
