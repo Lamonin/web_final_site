@@ -15,7 +15,7 @@ function drawGraph (form) { // eslint-disable-line no-unused-vars
   const min = d3.min(maxValuesArr) * 0.80;
   const max = d3.max(maxValuesArr) * 1.20;
 
-  const xAxisLen = width - 2 * marginX;
+  const xAxisLen = width - marginX;
   const yAxisLen = height - 2 * marginY;
 
   // определяем шкалы для осей
@@ -110,8 +110,7 @@ function init () {
 
   d3.select('#graph__viewport svg')
     .attr('width', width)
-    .attr('height', height)
-    .style('outline', 'thin solid black');
+    .attr('height', height);
 }
 
 init();
