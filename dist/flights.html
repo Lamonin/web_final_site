@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-    <script src="js/table.js" defer="defer"></script>
+    <script src="http://d3js.org/d3.v7.min.js" defer="defer"></script>
   </head>
   <body class="site-container">
     <header>
@@ -26,32 +26,39 @@
             <h3>Значение по оси OX</h3>
             <div class="graph__controls">
               <input id="oxValue1" name="oxValue" type="radio" value="0" checked="checked"/>
-              <label for="oxValue1">Название</label>
+              <label for="oxValue1">Тип</label>
               <input id="oxValue2" name="oxValue" type="radio" value="1"/>
-              <label for="oxValue2">Тип</label>
+              <label for="oxValue2">Страна</label>
             </div>
           </div>
           <div class="graph__oycell">
-            <h3>Результат</h3>
+            <h3>Значение по оси OY</h3>
             <div class="graph__controls">
-              <input id="chkBox1" type="checkbox" value="0"/>
-              <label for="chkBox1">Максимальная скорость полета</label>
-              <input id="chkBox2" type="checkbox" value="1"/>
+              <input type="radio" name="oyValue" value="0" checked="checked"/>
+              <label>Максимальная скорость полета</label>
+              <input id="chkBox2" type="radio" name="oyValue" value="1"/>
               <label for="chkBox2">Максимальная дальность полета</label>
-              <input id="chkBox3" type="checkbox" value="2"/>
+              <input id="chkBox3" type="radio" name="oyValue" value="2"/>
               <label for="chkBox3">Максимальная высота полета</label>
-              <input id="chkBox4" type="checkbox" value="3"/>
+              <input id="chkBox4" type="radio" name="oyValue" value="3"/>
               <label for="chkBox4">Максимальный взлетный вес</label>
-              <input id="chkBox5" type="checkbox" value="4"/>
+              <input id="chkBox5" type="radio" name="oyValue" value="4"/>
               <label for="chkBox5">Максимальное кол-во пассажиров</label>
             </div>
           </div>
-          <div class="graph__viewport"></div>
+          <button type="button" onclick="drawGraph(this.form)">Построить</button>
+          <div id="graph__viewport">
+            <svg></svg>
+          </div>
         </form>
         <h2>Фильтр</h2>
         <form class="filter-container flights__form-block">
           <label for="filterInputName">Название:</label>
           <input id="filterInputName" type="text"/>
+          <label for="filterInputType">Тип:</label>
+          <input id="filterInputType" type="text"/>
+          <label for="filterInputCountry">Страна:</label>
+          <input id="filterInputCountry" type="text"/>
           <label for="filterInputSpeed">Скорость:</label>
           <input id="filterInputSpeed" type="text"/>
           <label for="filterInputDistance">Дальность:</label>
@@ -70,11 +77,13 @@
           <select id="sort1">
             <option value="-1">--------</option>
             <option value="0">Название</option>
-            <option value="1">Скорость</option>
-            <option value="2">Дальность</option>
-            <option value="3">Макс. высота полета</option>
-            <option value="4">Макс. взлетный вес</option>
-            <option value="5">Пассажиры</option>
+            <option value="1">Тип</option>
+            <option value="2">Страна</option>
+            <option value="3">Скорость</option>
+            <option value="4">Дальность</option>
+            <option value="5">Макс. высота полета</option>
+            <option value="6">Макс. взлетный вес</option>
+            <option value="7">Пассажиры</option>
           </select>
           <label for="isDescending1">по убыванию:</label>
           <input id="isDescending1" type="checkbox"/>
@@ -82,11 +91,13 @@
           <select id="sort2">
             <option value="-1">--------</option>
             <option value="0">Название</option>
-            <option value="1">Скорость</option>
-            <option value="2">Дальность</option>
-            <option value="3">Макс. высота полета</option>
-            <option value="4">Макс. взлетный вес</option>
-            <option value="5">Пассажиры</option>
+            <option value="1">Тип</option>
+            <option value="2">Страна</option>
+            <option value="3">Скорость</option>
+            <option value="4">Дальность</option>
+            <option value="5">Макс. высота полета</option>
+            <option value="6">Макс. взлетный вес</option>
+            <option value="7">Пассажиры</option>
           </select>
           <label for="isDescending2">по убыванию:</label>
           <input id="isDescending2" type="checkbox"/>
@@ -97,6 +108,8 @@
                         <tr>
                           <th>№</th>
                           <th class="flights-table__name-column">Название</th>
+                          <th>Тип</th>
+                          <th>Страна</th>
                           <th>Cкорость (км/ч)</th>
                           <th>Дальность (км)</th>
                           <th>Макс. высота полета (м)</th>
@@ -112,5 +125,7 @@
     <footer>
       <p>Copyright 2023, FEFU, Рольщиков Максим</p>
     </footer>
+    <script src="js/table.js" defer="defer"></script>
+    <script src="js/graph.js" defer="defer"></script>
   </body>
 </html>

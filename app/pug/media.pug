@@ -13,12 +13,17 @@ block variables
 			"img/dassault_falcon_50.jpg",
 			"img/cesna_soveregin.jpg",
 		];
+block links
+	link(rel="stylesheet" href="css/lightgallery.css")
+block scripts
+	script(src="js/lightgallery.umd.js")
+	script(src="js/media.js")
 block content
-	.media__container.no-wide-container
+	.media__container.no-wide-container(id="lightgallery")
 		- var n = 0
 		- var ind = 0
 		while n++ < 24
-			.media__item
+			.media__item(data-src=mediaImages[ind])
 				img(src=mediaImages[ind], alt="")
 				
 				if ind++ === mediaImages.length - 1

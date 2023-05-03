@@ -2,59 +2,13 @@
 	var flightsTableHeaders = [
 		"№",
 		"Название",
+		"Тип",
+		"Страна",
 		"Cкорость (км/ч)",
 		"Дальность (км)",
 		"Макс. высота полета (м)",
 		"Макс. взлетный вес (кг)",
 		"Пассажиры (чел.)"
-	];
--
-	var flightsTableInfo = [
-		{
-			name: "Dassault Falcon 50",
-			speed: "880",
-			flyrange: "6300",
-			flyheight: "13800",
-			maxweight: "14600",
-			passengers: "10",
-			href: "dassault_falcon_50.html"
-		},
-		{
-			name: "Hawker 1000",
-			speed: "867",
-			flyrange: "5637",
-			flyheight: "12497",
-			maxweight: "14107",
-			passengers: "15",
-			href: "hawker_1000.html"
-		},
-		{
-			name: "Gulfstream G200",
-			speed: "796",
-			flyrange: "6301",
-			flyheight: "13720",
-			maxweight: "16080",
-			passengers: "11",
-			href: "gulfstream_g200.html"
-		},
-		{
-			name: "Cessna Citation Sovereign",
-			speed: "848",
-			flyrange: "5556",
-			flyheight: "14326",
-			maxweight: "13959",
-			passengers: "12",
-			href: "cesna_soveregin.html"
-		}
-		//- {
-		//- 	name: "",
-		//- 	speed: "",
-		//- 	flyrange: "",
-		//- 	flyheight: "",
-		//- 	maxweight: "",
-		//- 	passengers: "",
-		//- 	href: "#"
-		//- },
 	];
 
 mixin createFlightsTable
@@ -64,19 +18,5 @@ mixin createFlightsTable
 				each header, i in flightsTableHeaders
 					th(class=(i==1 ? "flights-table__name-column" : null))= header
 		tbody(id="flights-table-body")
-			//- each flightInfo, i in flightsTableInfo
-			//- 	tr
-			//- 		td.flights-table__number= i + 1
-					
-			//- 		each infoItem, key in flightInfo
-			//- 			if key === "name"
-			//- 				td
-			//- 					a(href=flightInfo.href).flights-table__name-cell= infoItem
-			//- 			else if key !== "href"
-			//- 				td= infoItem
-			
-			//- else
-			//- 	each header in flightsTableHeaders
-			//- 		td –
 
 +createFlightsTable

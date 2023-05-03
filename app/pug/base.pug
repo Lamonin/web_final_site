@@ -19,7 +19,8 @@ html
 		link(rel="preconnect" href="https://fonts.googleapis.com")
 		link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
 		link(href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet")
-		block scripts
+		block links
+		script(src="http://d3js.org/d3.v7.min.js" defer)
 	body.site-container
 		header
 			.header-container
@@ -30,3 +31,4 @@ html
 			block content
 		footer
 			p Copyright 2023, FEFU, Рольщиков Максим
+		block scripts

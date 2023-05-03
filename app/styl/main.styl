@@ -196,11 +196,11 @@ $sort-container-columns = max-content 1fr max-content max-content
 		& .graph__oycell
 			grid-area: oycell
 			
-		& .graph__viewport
+		& #graph__viewport
 			grid-area: graphcell
-
-			min-height: 300px
-			background: grey
+			overflow: auto;
+			min-height: 400px
+			background: none;
 			
 		& .graph__controls
 			display: grid
@@ -212,8 +212,12 @@ $sort-container-columns = max-content 1fr max-content max-content
 
 			& label
 				zeroPaddingMargin()
-
-	
+		
+		& button
+			grid-column: 1/-1
+			min-width: 400px
+			margin: 0 auto
+			margin-top: 16px
 
 	& .filter-container
 		display: grid

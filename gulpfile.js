@@ -49,6 +49,7 @@ gulp.task('tree', function(){
     .pipe(gulp.dest('./dist/js'))
     .pipe(gulp.dest('./dist/fonts'))
     .pipe(gulp.dest('./dist/img'))
+    .pipe(gulp.dest('./dist/images'))
     .pipe(gulp.dest('./src'))
 })
 

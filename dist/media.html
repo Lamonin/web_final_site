@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/lightgallery.css"/>
+    <script src="http://d3js.org/d3.v7.min.js" defer="defer"></script>
   </head>
   <body class="site-container">
     <header>
@@ -18,59 +20,61 @@
       </div>
     </header>
     <div class="content-container">
-      <div class="media__container no-wide-container">
-        <div class="media__item"><img src="img/airplane_1.jpg" alt=""/>
+      <div class="media__container no-wide-container" id="lightgallery">
+        <div class="media__item" data-src="img/airplane_1.jpg"><img src="img/airplane_1.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_2.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_2.jpg"><img src="img/airplane_2.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_3.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_3.jpg"><img src="img/airplane_3.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_4.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_4.jpg"><img src="img/airplane_4.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/hawker_1000.jpg" alt=""/>
+        <div class="media__item" data-src="img/hawker_1000.jpg"><img src="img/hawker_1000.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/gulfstream_g200.jpg" alt=""/>
+        <div class="media__item" data-src="img/gulfstream_g200.jpg"><img src="img/gulfstream_g200.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/dassault_falcon_50.jpg" alt=""/>
+        <div class="media__item" data-src="img/dassault_falcon_50.jpg"><img src="img/dassault_falcon_50.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/cesna_soveregin.jpg" alt=""/>
+        <div class="media__item" data-src="img/cesna_soveregin.jpg"><img src="img/cesna_soveregin.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_1.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_1.jpg"><img src="img/airplane_1.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_2.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_2.jpg"><img src="img/airplane_2.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_3.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_3.jpg"><img src="img/airplane_3.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_4.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_4.jpg"><img src="img/airplane_4.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/hawker_1000.jpg" alt=""/>
+        <div class="media__item" data-src="img/hawker_1000.jpg"><img src="img/hawker_1000.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/gulfstream_g200.jpg" alt=""/>
+        <div class="media__item" data-src="img/gulfstream_g200.jpg"><img src="img/gulfstream_g200.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/dassault_falcon_50.jpg" alt=""/>
+        <div class="media__item" data-src="img/dassault_falcon_50.jpg"><img src="img/dassault_falcon_50.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/cesna_soveregin.jpg" alt=""/>
+        <div class="media__item" data-src="img/cesna_soveregin.jpg"><img src="img/cesna_soveregin.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_1.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_1.jpg"><img src="img/airplane_1.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_2.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_2.jpg"><img src="img/airplane_2.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_3.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_3.jpg"><img src="img/airplane_3.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/airplane_4.jpg" alt=""/>
+        <div class="media__item" data-src="img/airplane_4.jpg"><img src="img/airplane_4.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/hawker_1000.jpg" alt=""/>
+        <div class="media__item" data-src="img/hawker_1000.jpg"><img src="img/hawker_1000.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/gulfstream_g200.jpg" alt=""/>
+        <div class="media__item" data-src="img/gulfstream_g200.jpg"><img src="img/gulfstream_g200.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/dassault_falcon_50.jpg" alt=""/>
+        <div class="media__item" data-src="img/dassault_falcon_50.jpg"><img src="img/dassault_falcon_50.jpg" alt=""/>
         </div>
-        <div class="media__item"><img src="img/cesna_soveregin.jpg" alt=""/>
+        <div class="media__item" data-src="img/cesna_soveregin.jpg"><img src="img/cesna_soveregin.jpg" alt=""/>
         </div>
       </div>
     </div>
     <footer>
       <p>Copyright 2023, FEFU, Рольщиков Максим</p>
     </footer>
+    <script src="js/lightgallery.umd.js"></script>
+    <script src="js/media.js"></script>
   </body>
 </html>

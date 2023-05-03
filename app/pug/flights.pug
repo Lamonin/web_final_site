@@ -16,6 +16,8 @@ block variables
 	-
 		var filteredFormInputs = {
 			"filterInputName": "Название",
+			"filterInputType": "Тип",
+			"filterInputCountry": "Страна",
 			"filterInputSpeed": "Скорость",
 			"filterInputDistance": "Дальность",
 			"filterInputHeight": "Макс. высота полета",
@@ -28,7 +30,7 @@ mixin radioWithRightLabel(id, name, label, value)
 	label(for=id)= label
 
 mixin checkBoxWithRightLabel(id, label, value)
-	input(id=id type="checkbox" value=value)
+	input(id=id type="radio" name="oyValue" value=value)
 	label(for=id)= label
 
 mixin createFilterInput(id, label)
@@ -47,6 +49,7 @@ mixin createSortDropdown(dropDownId, checkBoxId, dropDownLabel, checkBoxLabel)
 
 block scripts
 	script(src="js/table.js" defer)
+	script(src="js/graph.js" defer)
 
 block content
 	.flights__form.no-wide-container
@@ -55,15 +58,22 @@ block content
 			.graph__oxcell
 				h3 Значение по оси OX
 				.graph__controls
-					+radioWithRightLabel("oxValue1", "oxValue", "Название", 0)(checked)
-					+radioWithRightLabel("oxValue2", "oxValue", "Тип", 1)
+					+radioWithRightLabel("oxValue1", "oxValue", "Тип", 0)(checked)
+					+radioWithRightLabel("oxValue2", "oxValue", "Страна", 1)
 			.graph__oycell
-				h3 Результат
+				h3 Значение по оси OY
 				.graph__controls
 					- var n = 0
 					each value, key in graphCheckBoxes
-						+checkBoxWithRightLabel(key, value, n++)
-			.graph__viewport
+						if n == 0
+							input(type="radio" name="oyValue" value=0 checked=true)
+							label()= value
+							- n++
+						else
+							+checkBoxWithRightLabel(key, value, n++)
+			button(type="button" onclick="drawGraph(this.form)") Построить
+			div(id="graph__viewport")
+				svg
 
 		h2 Фильтр
 		form.filter-container.flights__form-block
